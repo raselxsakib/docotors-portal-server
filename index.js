@@ -12,7 +12,7 @@ app.use(BodyParser.json());
 app.use(express.static('doctors'));
 app.use(fileUpload());
 
-const uri = `mongodb+srv://doctorsAdmin:docAdmin@cluster0.3m2j3.mongodb.net/doctorsPortal?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.3m2j3.mongodb.net/doctorsPortal?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
